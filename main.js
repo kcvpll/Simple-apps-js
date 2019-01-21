@@ -1,18 +1,20 @@
-// document.getElementById('slider-left').onclick = sliderLeft;
-autoSlider();
-var left = 0;
-var timer; 
-
-function autoSlider(){
-	timer = setTimeout(function(){
-		var polosa = document.getElementById('polosa')
-		left = left -128;
-		if (left < -512){
-		left = 0;
-		clearTimeout(timer);
-	}
-	polosa.style.left = left + 'px'; 
-	 autoSlider();
-	}, 1000);
+var radio = document.getElementsByName('fruc'); 
+for (var i = 0; i < radio.length; i++){
+	radio [i].onchange = testRadio;
 }
 
+function testRadio (){
+	console.log(this.value);
+}
+
+document.getElementById('one').onclick = checkRadio; 
+
+function checkRadio(){
+	var m = document.getElementsByName('fruc'); 
+	for (var i = 0; i < m.length; i++) {
+		if (m[i].checked) {
+			alert(m[i].value);
+			break;
+		}
+	}
+}
